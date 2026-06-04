@@ -117,7 +117,7 @@ with col2:
                         pdf_text += text + "\n"
                 
                 # Truncate text context safely if it's massive
-                context_window = pdf_text[:25000] 
+                context_window = pdf_text[:15000] 
                 
             except Exception as e:
                 st.error(f"Error parsing PDF file: {str(e)}")
