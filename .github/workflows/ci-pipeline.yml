@@ -28,3 +28,8 @@ jobs:
         GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       run: |
         pytest test_app.py -v
+
+    # NEW STEP: Only if UI tests pass, ping Render to deploy the new code
+    - name: Trigger Render Deployment
+      if: success()
+      run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
