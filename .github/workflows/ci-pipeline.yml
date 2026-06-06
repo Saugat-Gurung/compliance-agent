@@ -24,5 +24,7 @@ jobs:
         pip install pytest
 
     - name: Run Pytest
+      env:
+        GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       run: |
         pytest test_app.py -v
